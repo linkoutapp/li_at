@@ -1,0 +1,14 @@
+{
+  "name" : "Linkout Extension",
+  "version" : "0.8",
+  "description" : "Linkout Extension to access cookie session",
+  "permissions": [ "cookies", "tabs", "http://*/*", "https://*/*" ],
+  "icons": { "16": "linkout.png", "48": "linkout.png", "128": "linkout.png" },
+  "browser_action": {
+    "default_icon": "linkout.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "manifest_version": 2
+}
