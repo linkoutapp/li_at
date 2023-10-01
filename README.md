@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./linkout.png" height="128" width="128" />
+</div>
+
 ### Linkout Extension
 #### Description
 - Linkout Extension is a browser extension for viewing the ```li_at``` cookie from LinkedIn.
