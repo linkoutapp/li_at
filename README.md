@@ -1,33 +1,36 @@
-<div align="center">
-  <img src="./linkout.png" height="128" width="128" />
-</div>
+<p align="center">
+  <a href="https://github.com/linkoutapp/brand" aria-label="Linkout brand assets">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/linkoutapp/brand/main/scraper-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/linkoutapp/brand/main/scraper-transparent.svg">
+      <img src="https://raw.githubusercontent.com/linkoutapp/brand/main/scraper-transparent.svg" alt="Linkout" width="128">
+    </picture>
+  </a>
+</p>
 
-### Linkout Extension
-#### Description
-- Linkout Extension is a browser extension for viewing the ```li_at``` cookie from LinkedIn.
+# Linkout extension
 
-#### Features
-- Access the ```li_at``` cookie from LinkedIn.
-- Requests cookie access only for `https://www.linkedin.com/*`. It does not log cookie values or run a background listener.
+View the LinkedIn session cookie in a Chrome extension popup. The extension uses Manifest V3 and requests cookie access only for `https://www.linkedin.com/*`.
 
-#### Installation
-- Clone the repository.
-- Enable developer mode in your browser's extensions/add-ons page.
-- Load the extension by selecting the folder containing the extension files.
+## Install
 
-#### How to Use
-- Click on the Linkout Extension icon in the browser's toolbar.
-- View the value of the ```li_at``` cookie in the displayed popup or new tab.
+1. Clone this repository.
+2. Open `chrome://extensions` and turn on **Developer mode**.
+3. Choose **Load unpacked** and select the repository folder.
 
-## AppSumo setup session
+## Use
 
-Linkout’s $29 offer includes one 30-minute session with Sai to set up `linkout-scraper` on your Mac. The code is free under the MIT license. The deal is in AppSumo review and is not available to buy yet.
+Sign in to LinkedIn in Chrome, then click the Linkout extension icon. The popup reads the `li_at` cookie for LinkedIn. It does not run a background listener, collect other sites' cookies, or log cookie values.
 
-[AppSumo deal status](https://www.linkout.space/appsumo.html)
+Treat the cookie like a password. Do not paste it into chat, logs, screenshots, or untrusted sites. The current [Linkout scraper](https://github.com/linkoutapp/linkout-scraper) connects to an existing local Chrome session; its setup does not require this extension.
 
+## Development
 
-## Security checks
+Use Node.js 22 or newer. There are no npm dependencies.
 
-Run `npm test` with Node.js 22 or newer. Tests use synthetic cookies only.
+```sh
+npm test
+node --check popup.js
+```
 
-The `li_at` value grants access to your LinkedIn session. Do not paste it into chat, logs, screenshots, or untrusted sites.
+Tests use synthetic cookies. They do not read your browser or sign in to LinkedIn.
