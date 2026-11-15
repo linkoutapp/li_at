@@ -1,14 +1,21 @@
 {
-  "name" : "Linkout Extension",
-  "version" : "0.8",
-  "description" : "Linkout Extension to access cookie session",
-  "permissions": [ "cookies", "tabs", "http://*/*", "https://*/*" ],
-  "icons": { "16": "linkout.png", "48": "linkout.png", "128": "linkout.png" },
-  "browser_action": {
-    "default_icon": "linkout.png"
+  "name": "Linkout Extension",
+  "version": "0.9",
+  "description": "Linkout Extension to access cookie session",
+  "permissions": [
+    "cookies"
+  ],
+  "icons": {
+    "16": "linkout.png",
+    "48": "linkout.png",
+    "128": "linkout.png"
   },
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "manifest_version": 2
+  "manifest_version": 3,
+  "host_permissions": [
+    "https://www.linkedin.com/*"
+  ],
+  "action": {
+    "default_icon": "linkout.png",
+    "default_popup": "index.html"
+  }
 }
