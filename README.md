@@ -8,7 +8,7 @@
 
 #### Features
 - Access the ```li_at``` cookie from LinkedIn.
-- Requires necessary permissions to access cookies and URLs.
+- Requests cookie access only for `https://www.linkedin.com/*`. It does not log cookie values or run a background listener.
 
 #### Installation
 - Clone the repository.
@@ -24,3 +24,10 @@
 Linkout’s $29 offer includes one 30-minute session with Sai to set up `linkout-scraper` on your Mac. The code is free under the MIT license. The deal is in AppSumo review and is not available to buy yet.
 
 [AppSumo deal status](https://www.linkout.space/appsumo.html)
+
+
+## Security checks
+
+Run `npm test` with Node.js 22 or newer. Tests use synthetic cookies only.
+
+The `li_at` value grants access to your LinkedIn session. Do not paste it into chat, logs, screenshots, or untrusted sites.

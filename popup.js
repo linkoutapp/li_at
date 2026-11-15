@@ -1,27 +1,14 @@
-chrome.tabs.getSelected(null, function() {
-   let li_at = '';
-   
-   // If the chrome.cookies API is not available, fallback to chrome.experimental.cookies
-   if (!chrome.cookies)
-      chrome.cookies = chrome.experimental.cookies;
-   
-   // Retrieve all cookies
-   chrome.cookies.getAll({}, function(cookie) {
-      for (i = 0; i < cookie.length; i++) {
-         // Check if the cookie's domain includes "www.linkedin.com" and its name is "li_at"
-         if (cookie[i].domain.includes("www.linkedin.com") && cookie[i].name == "li_at") {
-            // Assign the value of "li_at" cookie to the variable "li_at"
-            li_at = cookie[i].value;
-         }
-      }
-      
-      // Set the value of the "cookieText" element to the value of "li_at" cookie
-      document.getElementById("cookieText").value = li_at;
-      
-      // Add an event listener to the "b" element
-      document.getElementById('b').addEventListener("click", function() {
-         // When the "b" element is clicked, update the value of the "cookieText" element with the value of "li_at" cookie
-         document.getElementById("cookieText").value = li_at;
-      });
-   });
+const cookieField = document.getElementById("cookieText");
+const status = document.getElementById("status");
+
+chrome.cookies.get({url: "https://www.linkedin.com/", name: "li_at"}, cookie => {
+   if (chrome.runtime.lastError) {
+      cookieField.value = "";
+      status.textContent = "Could not read the LinkedIn session cookie.";
+      return;
+   }
+   cookieField.value = cookie ? cookie.value : "";
+   status.textContent = cookie
+      ? "Treat this cookie like a password. Only share it with software you trust."
+      : "No LinkedIn session cookie was found.";
 });

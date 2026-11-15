@@ -1,0 +1,6 @@
+{
+  "name": "linkout-cookie-extension",
+  "private": true,
+  "scripts": {"test": "node --test"},
+  "engines": {"node": ">=22"}
+}

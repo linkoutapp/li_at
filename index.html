@@ -2,7 +2,7 @@
 <html>
 
 <head>
-   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+   <script src="popup.js" defer></script>
    <style>
       body {
          background-color: #0D0E18;
@@ -63,8 +63,8 @@
 <body>
    <div class="container">
       <div class="form-container">
-         <script src="popup.js"></script>
-         <textarea id="cookieText" placeholder="Enter your text here"></textarea>
+         <textarea id="cookieText" aria-label="LinkedIn session cookie" readonly></textarea>
+         <p id="status" role="status"></p>
       </div>
    </div>
 </body>
